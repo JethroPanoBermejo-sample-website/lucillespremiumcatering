@@ -433,6 +433,15 @@ p { margin-bottom: 1rem; }
     }
 }
 
+/* Ensure all service cards have equal height and alignment */
+.services-grid .service-card:nth-child(4) {
+    align-self: stretch;
+}
+
+.services-grid .service-card:nth-child(4) .service-image img {
+    min-height: 200px;
+}
+
 .service-card {
     background: var(--white);
     padding: 2rem;
@@ -451,13 +460,18 @@ p { margin-bottom: 1rem; }
     margin-bottom: 1.5rem;
     overflow: hidden;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-image img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .service-card:hover .service-image img {
@@ -545,6 +559,13 @@ p { margin-bottom: 1rem; }
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
     margin-bottom: 3rem;
+    align-items: stretch;
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 1200px) {
@@ -553,19 +574,28 @@ p { margin-bottom: 1rem; }
     }
 }
 
+/* Ensure all gallery items have consistent alignment */
+
 .gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     aspect-ratio: 4/3;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    height: 100%;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .gallery-item:hover img {
